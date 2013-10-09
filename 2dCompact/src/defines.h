@@ -18,7 +18,11 @@
                                 /*i.e, modulus of packing divided by 0.001,   */
                                 /*required to print coordination_number and   */
                                 /*potential to file as functions of packing   */
-#define LOGNAME_FORMAT "log/%Y%m%d_%H%M%S"
-#define LOGNAME_SIZE 40
+
+#define SYSTEM_LOGNAME_FORMAT "log/%Y%m%d_%H%M%S_%s_%z.sys"
+#define ERROR_LOGNAME_FORMAT "log/%Y%m%d_%H%M%S_%s_%z.err"
+#define DATA_LOGNAME_FORMAT "log/%Y%m%d_%H%M%S_%s_%z.dat"
+#define CONF_LOGNAME_FORMAT "log/%Y%m%d_%H%M%S_%s_%z.conf"
+#define LOGNAME_SIZE 80
 
 #endif

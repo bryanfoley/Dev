@@ -7,12 +7,14 @@
  */
 
 #include "initSystem.h"
-#include<iostream>
-#include<fstream>
+#include <iostream>
+#include <fstream>
+#include <random>
+#include <math.h>
 
-void initializeTo (float *p_system, int sizeOfSystem, float val)
+void initializeTo ( float *p_system, int sizeOfSystem, float val )
 {
-	for (int i = 0; i < sizeOfSystem;)
+	for ( int i = 0; i < sizeOfSystem; )
 	{
 		//*p_system[i].twoDDisk(1.0,1.0,1.0,1.0);
 		//*p_system[i].setPhi(1.0);
@@ -22,14 +24,24 @@ void initializeTo (float *p_system, int sizeOfSystem, float val)
 	}
 }
 
-void initializeToRand (float *p_system, int sizeOfSystem)
+void initializeToRand ( float *p_system, int sizeOfSystem )
 {
-	for (int i = 0; i < sizeOfSystem;)
+	for ( int i = 0; i < sizeOfSystem; )
 	{
 		//*p_system[i].twoDDisk(1.0,1.0,1.0,1.0);
 		//*p_system[i].setPhi(1.0);
-		//*p_system = rand(5);
+		*p_system = sampleNormal();
 		i++;
 		++p_system;
 	}
+}
+
+float sampleNormal( void )
+{
+    float u = ((float) rand() / (RAND_MAX)) * 3 - 1;
+    float v = ((float) rand() / (RAND_MAX)) * 2 - 1;
+    float r = u * u + v * v;
+    if (r == 0 || r > 1) return sampleNormal();
+    float c = sqrt(-2 * log(r) / r);
+    return u * c;
 }

@@ -5,8 +5,8 @@
  *      Author: bfoley
  */
 #include "myVector.h"
-#include<iostream>
-#include<fstream>
+#include <iostream>
+#include <fstream>
 
 		//Explicit constructor
 		myVector::myVector(double x, double y, double z, double phi): _x(x), _y(y), _z(z), _phi(phi){};

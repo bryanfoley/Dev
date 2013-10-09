@@ -21,6 +21,7 @@
 #include<iterator>
 #include<list>
 #include<stdio.h>
+#include<time.h>
 #include "twoDDisk.h"
 #include "myVector.h"
 #include "verlet.h"

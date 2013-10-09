@@ -14,32 +14,20 @@
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include<ctime>
+#include <ctime>
 
-void dumpDataToFile(float *p_system, int sizeOfSystem)
+dumpToFile::dumpToFile()
 {
-	time_t curtime;
-	struct tm *loctimep;
-	loctimep = localtime( &curtime );
-	char * name = time_stamp02();
-	std::strftime(name, LOGNAME_SIZE,
-	"DUMP_%m%d%Y_%H%M%S", loctimep);
-	ofstream outClientFile;
-	outClientFile.open(name, ios::out);
-	if(!outClientFile)
-	{
-		cout << "Failed to dump!!!" << "\n";
-	}
-	for (int i = 0; i < sizeOfSystem;)
-	{
-		outClientFile << *p_system << "\n";
-		i++;
-		++p_system;
-	}
-	outClientFile.close();
+	//Blank Implementation
 }
 
-char * time_stamp02(void)
+void dumpToFile::sleepNow( int sleepTime )
+{
+   int curTime = clock(); //get the current time
+   while(clock() - curTime < sleepTime){} //wait until the time has passed
+}
+
+char * dumpToFile::time_stamp( void )
 {
 	char filename[LOGNAME_SIZE];
 	time_t curtime;
@@ -52,21 +40,47 @@ char * time_stamp02(void)
 			exit( EXIT_FAILURE );
 		}
 
-loctimep = localtime( &curtime );
-if ( loctimep == NULL )
-{
-fputs( "Time conversion error\n", stderr );
-exit( EXIT_FAILURE );
+	loctimep = localtime( &curtime );
+	if ( loctimep == NULL )
+	{
+		fputs( "Time conversion error\n", stderr );
+		exit( EXIT_FAILURE );
+	}
+
+	if ( strftime( filename, LOGNAME_SIZE,
+			SYSTEM_LOGNAME_FORMAT, loctimep ) == 0 )
+	{
+		fputs( "Generated filename too long\n", stderr );
+		exit( EXIT_FAILURE );
+	}
+
+	printf( "Generated filename: %s\n", filename );
+	//exit( EXIT_SUCCESS );
+	return filename;
 }
 
-/*if ( strftime( filename, LOGNAME_SIZE,
-"DUMP_%m%d%Y_%H%M%S", loctimep ) == 0 )
+void dumpToFile::dumpSystemToFile( float *p_system, int sizeOfSystem )
 {
-fputs( "Generated filename too long\n", stderr );
-exit( EXIT_FAILURE );
-}*/
+	time_t curtime;
+	struct tm *loctimep;
+	loctimep = localtime( &curtime );
+	char * name;
+	(std::string)name = (std::string)time_stamp();
+	std::strftime(name, LOGNAME_SIZE,
+	SYSTEM_LOGNAME_FORMAT, loctimep);
 
-printf( "Generated filename: %s\n", filename );
-//exit( EXIT_SUCCESS );
-return filename;
+	ofstream outClientFile;
+	outClientFile.open(name, ios::out);
+
+	if( !outClientFile )
+	{
+		cout << "Failed to dump system to file!!!" << "\n";
+	}
+	for ( int i = 0; i < sizeOfSystem; )
+	{
+		outClientFile << *p_system << "\n";
+		i++;
+		++p_system;
+	}
+	outClientFile.close();
 }

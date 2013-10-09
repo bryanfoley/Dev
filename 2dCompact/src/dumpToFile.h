@@ -14,9 +14,17 @@
 #include<fstream>
 #include<stdio.h>
 
-void dumpDataToFile(float *, int);
-FILE *logFile(void);
-char *time_stamp(void);
-char * time_stamp02(void);
+using namespace std;
+
+class dumpToFile
+{
+	public:
+		//Constructor
+		dumpToFile( void );
+		//Public member functions
+		void sleepNow( int );
+		char *time_stamp( void );
+		void dumpSystemToFile( float *, int );
+};
 
 #endif /* DUMPTOFILE_H_ */
