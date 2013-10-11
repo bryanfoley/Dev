@@ -59,7 +59,7 @@ char * dumpToFile::time_stamp( void )
 	return filename;
 }
 
-void dumpToFile::dumpSystemToFile( float *p_system, int sizeOfSystem )
+void dumpToFile::dumpSystemToFile( twoDDisk *p_system, int sizeOfSystem )
 {
 	time_t curtime;
 	struct tm *loctimep;
@@ -78,7 +78,7 @@ void dumpToFile::dumpSystemToFile( float *p_system, int sizeOfSystem )
 	}
 	for ( int i = 0; i < sizeOfSystem; )
 	{
-		outClientFile << *p_system << "\n";
+		outClientFile << (outClientFile,*p_system) << "\n";
 		i++;
 		++p_system;
 	}

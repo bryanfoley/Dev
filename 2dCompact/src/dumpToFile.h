@@ -24,7 +24,7 @@ class dumpToFile
 		//Public member functions
 		void sleepNow( int );
 		char *time_stamp( void );
-		void dumpSystemToFile( float *, int );
+		void dumpSystemToFile( twoDDisk *, int );
 };
 
 #endif /* DUMPTOFILE_H_ */

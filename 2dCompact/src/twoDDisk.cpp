@@ -9,6 +9,8 @@
 #include<iostream>
 #include<fstream>
 
+using namespace std;
+
 		//Constructor(s)
 		twoDDisk::twoDDisk():_rtd0(null),_rtd1(null),_rtd2(null),_rtd3(null),_rtd4(null){};
 		twoDDisk::twoDDisk(double x, double y, double z, double phi):_rtd0(x,y,z,phi){};

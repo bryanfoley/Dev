@@ -13,7 +13,7 @@
 #include<iostream>
 #include<fstream>
 
-void initializeTo ( float *, int, float );		//A function which initializes the system to val
+void initializeTo ( twoDDisk *, int, double );		//A function which initializes the system to val
 void initializeToRand ( float *, int );		//A function which initializes the system to all random values
 float sampleNormal ( void );
 

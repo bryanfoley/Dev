@@ -8,6 +8,8 @@
 #include <iostream>
 #include <fstream>
 
+using namespace std;
+
 		//Explicit constructor
 		myVector::myVector(double x, double y, double z, double phi): _x(x), _y(y), _z(z), _phi(phi){};
 

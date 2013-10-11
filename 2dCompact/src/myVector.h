@@ -12,67 +12,74 @@
 #include<math.h>
 using namespace std;
 
-class myVector {
+class myVector
+{
 	//Friend overloaded binary functions
-	friend istream & operator >> (istream & is, myVector & v){
+	friend istream & operator >> (istream & is, myVector & v)
+	{
 		is >> v._x >> v._y >> v._z >> v._phi;
 		return is;
 	}
 
-	friend ostream & operator << (ostream & os, const myVector & v){
+	friend ostream & operator << (ostream & os, const myVector & v)
+	{
 		os << v._x << " " << v._y << " " << v._z << " " << v._phi;
 		return os;
 	}
 	//myVector addition
-	friend myVector operator + (const myVector & v1, const myVector & v2){
+	friend myVector operator + (const myVector & v1, const myVector & v2)
+	{
 		myVector res(v1);
 		res+=v2;
 		return res;
 	}
 
 	//myVector subtraction
-	friend myVector operator - (const myVector & v1, const myVector & v2){
+	friend myVector operator - (const myVector & v1, const myVector & v2)
+	{
 		myVector res(v1);
 		res-=v2;
 		return res;
 	}
 
 	//Scalar multiplication
-	friend myVector operator * (double c, const myVector & p){
+	friend myVector operator * ( double c, const myVector & p )
+	{
 		myVector res=p;
 		res *= c;
 		return res;
 	}
 
-	friend myVector operator * (const myVector & p, double c){
+	friend myVector operator * ( const myVector & p, double c )
+	{
 		return c*p;
 	}
 
 	//Public---------------------------------------------
 	public:
 		//Explicit constructor
-		myVector(double x=0, double y=0, double z=0, double phi=0);
+		myVector( double x=0, double y=0, double z=0, double phi=0 );
 		//Get member functions
-		double getX(void);
-		double getY(void);
-		double getZ(void);
-		double getPhi(void);
+		double getX( void );
+		double getY( void );
+		double getZ( void );
+		double getPhi( void );
 
 		//Set member functions
-		void setX(double x);
-		void setY(double y);
-		void setZ(double z);
-		void setPhi(double phi);
+		void setX( double x );
+		void setY( double y );
+		void setZ( double z );
+		void setPhi( double phi );
 
 		//Overloaded binary operators
 		//Addition
-		myVector & operator += (const myVector & p);
+		myVector & operator += ( const myVector & p );
 
 		//Subtraction
-		myVector & operator -= (const myVector & p);
+		myVector & operator -= ( const myVector & p) ;
 
 		//Multiplication by a scalar
-		myVector & operator *= (double c);
+		myVector & operator *= ( double c );
 
 	private:
 		double _x;		//x-component

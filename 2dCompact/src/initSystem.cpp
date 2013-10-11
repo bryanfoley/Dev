@@ -12,13 +12,14 @@
 #include <random>
 #include <math.h>
 
-void initializeTo ( float *p_system, int sizeOfSystem, float val )
+void initializeTo ( twoDDisk *p_system, int sizeOfSystem, double val )
 {
 	for ( int i = 0; i < sizeOfSystem; )
 	{
 		//*p_system[i].twoDDisk(1.0,1.0,1.0,1.0);
 		//*p_system[i].setPhi(1.0);
-		*p_system = val;
+		//*p_system = val;
+		p_system->setX(val);
 		i++;
 		++p_system;
 	}
