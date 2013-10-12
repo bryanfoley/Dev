@@ -19,6 +19,9 @@ class twoDDisk : public myVector
 		twoDDisk();
 		twoDDisk(double x, double y, double z, double phi);
 
+		myVector _rtd0,_rtd1,_rtd2,_rtd3,_rtd4;	//Position vector and its higher order time derivatives
+		myVector _force;	//Force vector, has x, y and angular components
+
 		//Access members
 		//Position myVector
 		myVector getPos();	//Access a static myVector
@@ -72,7 +75,7 @@ class twoDDisk : public myVector
 		//Coordination number
 		double getZNum();
 
-	private:
+	//private:
 		//Properties
 		double _r;	//Radius
 		double _m;	//Mass
@@ -80,7 +83,5 @@ class twoDDisk : public myVector
 		int _z;		//Coordination Number
 		int _type;	//Type of particle
 		double _mu,_gamma,_Y,_A;//Material properties
-		myVector _rtd0,_rtd1,_rtd2,_rtd3,_rtd4;	//Position vector and its higher order time derivatives
-		myVector _force;	//Force vector, has x, y and angular components
 };
 #endif /* TWODDISK_H_ */

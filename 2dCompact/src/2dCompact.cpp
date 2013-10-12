@@ -8,7 +8,7 @@
 
 #include <iostream>
 #include <stdio.h>
-#include<stdlib.h>
+#include <stdlib.h>
 #include "defines.h"
 #include "includes.h"
 
@@ -29,15 +29,13 @@ int main( void ) {
 	twoDDisk *p_system, system[10];
 	p_system = system;
 
-	dumpToFile fileDumper;
-
 
 	initializeTo(p_system, 10, 12.3333);
-	fileDumper.dumpSystemToFile(p_system,10);
-	//initializeTo(p_system, 10000, 2.0);
-	//fileDumper.sleepNow(1000000);
-	//fileDumper.dumpSystemToFile(p_system,10000);
-
+	dumpSystemToFile(p_system,10);
+	errorLog(AT, "Fake error");
+	initializeTo(p_system, 10, 2.0);
+	sleepNow(1000000);
+	dumpSystemToFile(p_system,10);
 
 	return 0;
 }

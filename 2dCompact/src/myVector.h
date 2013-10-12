@@ -10,22 +10,15 @@
 
 #include<iostream>
 #include<math.h>
+//#include"dumpToFile.h"
 using namespace std;
 
 class myVector
 {
 	//Friend overloaded binary functions
-	friend istream & operator >> (istream & is, myVector & v)
-	{
-		is >> v._x >> v._y >> v._z >> v._phi;
-		return is;
-	}
+	friend istream & operator >> (istream & is, myVector & v);
+	friend ostream & operator << (ostream & os, const myVector & v);
 
-	friend ostream & operator << (ostream & os, const myVector & v)
-	{
-		os << v._x << " " << v._y << " " << v._z << " " << v._phi;
-		return os;
-	}
 	//myVector addition
 	friend myVector operator + (const myVector & v1, const myVector & v2)
 	{
@@ -81,7 +74,7 @@ class myVector
 		//Multiplication by a scalar
 		myVector & operator *= ( double c );
 
-	private:
+	//private:
 		double _x;		//x-component
 		double _y;		//y-component
 		double _z;		//z-component

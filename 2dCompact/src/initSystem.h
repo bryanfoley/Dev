@@ -10,6 +10,7 @@
 
 #include "defines.h"
 #include "includes.h"
+#include "dumpToFile.h"
 #include<iostream>
 #include<fstream>
 

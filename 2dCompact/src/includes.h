@@ -28,7 +28,6 @@
 #include "initSystem.h"
 #include "initSystem.cpp"
 #include "dumpToFile.h"
-#include "dumpToFile.cpp"
 //#include "init_hopper.h"
 //#include "init_silo.h"
 //#include "init_window_box.h"
